@@ -26,6 +26,14 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+DJOSER={"USER_ID_FIELD":"username"};
+
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework.authentication.TokenAuthentication",
+        "rest_framework.authentication.SessionAuthentication",  
+    ),
+};
 
 # Application definition
 
@@ -36,6 +44,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'rest_framework.authtoken',
+    'djoser',
     'restaurant',
 ]
 

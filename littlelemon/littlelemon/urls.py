@@ -16,7 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin;
 from django.urls import path, include;
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('restaurant/',include('restaurant.urls')),
+    path('auth/', include('djoser.urls')),
+    path('auth/', include('djoser.urls.authtoken')),
+    path('restaurant/',include('restaurant.urls')), # in module 2 they all of a suddent decide its actually restaurant/menu (meaning the api they defined would be restaurant/menu/menu/<int:pk>) This is dumb and I will assume its a typo.
 ]
